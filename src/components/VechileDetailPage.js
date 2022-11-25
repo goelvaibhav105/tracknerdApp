@@ -18,9 +18,8 @@ export default function VechileDetailPage({vechileClicked,setDetailPage}) {
     </div>
     
   </div>
-  <div className='text-center justify-center absolute top-40 left-10'>
+  <div className='text-center justify-center absolute top-40 right-20'>
   <button className="bg-gray-100 inline-flex  py-3 px-5 rounded-lg items-center cursor-pointer hover:bg-gray-200 focus:outline-none" onClick={()=>{setDetailPage(false)}}>
-       
         <span className="ml-4 flex items-start flex-col leading-none">
           <span className="text-sm text-purple-600 mb-1">Go Back</span>
           <span className="title-font text-purple-800 font-medium">to Home</span>
