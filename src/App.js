@@ -1,14 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Login from "./components/Login";
+import VehicleList from "./components/VehicleList";
+import './index.css'
 
-function App() {
+export default function App() {
+  const [userDetail, setUserDetail] = useState(null);
+
+  useEffect(() => {
+    const userDetailStr = JSON.stringify(userDetail)
+    userDetail && localStorage.setItem('userDetail',userDetailStr) 
+  }, [!userDetail])
+  
+
+
+  const getUserDetail = (details) => {
+    setUserDetail(details);
+
+  };
+
+  const userDetailsStr =   localStorage.getItem('userDetail') 
+  const userDetailsObject = JSON.parse(userDetailsStr)
+
   return (
-    <div className="App">
-        <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div >
+      {userDetail ? (
+        <VehicleList userDetail={userDetail} />
+      ) : (
+        <div >
+
+        <Login getUserDetail={getUserDetail} />
+        </div>
+      )}
     </div>
   );
 }
-
-export default App;
