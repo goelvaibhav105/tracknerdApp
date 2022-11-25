@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import Home from './Home';
 import VechileCards from './VechileCards';
 
-export default function VehicleList({userDetail}) {
+export default function VehicleList({userDetail,setUserDetail}) {
     const { token } = userDetail;
     const [allData, setData] = useState(null);
     const [userData, setUserData] = useState(null);
@@ -30,7 +30,7 @@ export default function VehicleList({userDetail}) {
 
   return (
     <div>
-      <Home userData={userData}/>
+      <Home userData={userData} setUserData={setUserDetail} />
       <VechileCards userData={userData}/>
     </div>
   )
