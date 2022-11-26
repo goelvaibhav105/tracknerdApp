@@ -29,7 +29,7 @@ export default function Login(props) {
         }
     };
     return (
-        <div className="h-[200px] mx-[33%] my-[8%] shadow-lg border ">
+        <div className="h-[200px] sm:mx-[10%] my-[5%] md:mx-[33%] my-[8%] shadow-lg border ">
             <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 shadow-lg bg-purple-200 ">
                 <div className="w-full max-w-md space-y-8">
                     <div>
