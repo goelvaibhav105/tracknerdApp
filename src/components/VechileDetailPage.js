@@ -6,7 +6,7 @@ export default function VechileDetailPage({ vechileClicked, setDetailPage }) {
     return (
 <div className='flex flex-col'>
         <section className="text-gray-600 body-font flex-row flex">
-            <div className=" px-40 py-24  flex-col">
+            <div className=" px-40 py-10  flex-col">
                 <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
                     <h2 className="text-sm text-purple-500 tracking-widest font-medium title-font mb-5">Details of the vehicle is under : </h2>
                     <h2 className="text-lg text-purple-500 tracking-widest font-medium title-font mb-1">{vechileClicked.status}</h2>
@@ -16,8 +16,8 @@ export default function VechileDetailPage({ vechileClicked, setDetailPage }) {
                 </div>
 
             </div>
-            <div className='px-40 py-24  flex-col'>
-                <Map/>
+            <div className='px-40 py-10  flex-col'>
+                <Map vechileClicked={vechileClicked}/>
             </div>
             <div className='text-center justify-center absolute top-40 right-20'>
                 <button className="bg-gray-100 inline-flex  py-3 px-5 rounded-lg items-center cursor-pointer border-2 border-purple-300 hover:bg-gray-200 focus:outline-none" onClick={() => { setDetailPage(false) }}>

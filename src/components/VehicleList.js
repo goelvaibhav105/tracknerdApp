@@ -33,7 +33,7 @@ export default function VehicleList({ userDetail, setUserDetail }) {
 
   return (
     <div>
-      <Home userData={userData} setUserData={setUserDetail} />
+      <Home userData={userData} detailPage={detailPage} setUserData={setUserDetail} />
       {!detailPage ?
         <VechileCards userData={userData} setDetailPage={setDetailPage} setVechileClicked={setVechileClicked} /> :
         <VechileDetailPage vechileClicked={vechileClicked} userData={userData} setDetailPage={setDetailPage} />}
