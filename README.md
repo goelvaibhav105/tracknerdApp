@@ -21,9 +21,7 @@ Password: tracknerd@123
 
 ## *vehicle List
 ### Installed Firebase to get Db Data
-### vehicle List on Home page :-
-
-### Click inside to get the Details Data 
+### vehicle List on Home page :-  Click inside to get the Details Data 
 
 
 Thank you so much 
