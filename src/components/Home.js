@@ -4,7 +4,7 @@ export default function Home({userData,setUserData,detailPage}) {
  const vechileUnderUser = userData && userData[0].vehicles && userData[0].vehicles.length
 
  const logout = () =>{
-  localStorage.clear();
+  sessionStorage.clear();
   setUserData(null);
  }
   return (

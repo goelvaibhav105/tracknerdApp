@@ -8,7 +8,7 @@ export default function App() {
 
   useEffect(() => {
     const userDetailStr = JSON.stringify(userDetail)
-    userDetail && localStorage.setItem('userDetail',userDetailStr) 
+    userDetail && sessionStorage.setItem('userDetail',userDetailStr) 
   }, [!userDetail])
   
 
@@ -18,7 +18,7 @@ export default function App() {
 
   };
 
-  const userDetailsStr =   localStorage.getItem('userDetail') 
+  const userDetailsStr =   sessionStorage.getItem('userDetail') 
   const userDetailsObject = JSON.parse(userDetailsStr)
 
   return (
