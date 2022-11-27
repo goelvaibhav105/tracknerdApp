@@ -23,8 +23,8 @@ export default function App() {
 
   return (
     <div >
-      {userDetail ? (
-        <VehicleList userDetail={userDetail} setUserDetail={setUserDetail} />
+      {userDetailsObject ? (
+        <VehicleList userDetail={userDetailsObject} setUserDetail={setUserDetail} />
       ) : (
         <div >
 

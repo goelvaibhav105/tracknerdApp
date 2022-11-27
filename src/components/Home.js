@@ -2,6 +2,11 @@ import React from 'react'
 
 export default function Home({userData,setUserData,detailPage}) {
  const vechileUnderUser = userData && userData[0].vehicles && userData[0].vehicles.length
+
+ const logout = () =>{
+  localStorage.clear();
+  setUserData(null);
+ }
   return (
 <div className="isolate bg-white">
   <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
@@ -42,7 +47,7 @@ export default function Home({userData,setUserData,detailPage}) {
 
           <a href="#" className="font-semibold text-gray-900 hover:text-gray-900">Company</a>
         </div>
-        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end " onClick={() => setUserData(null)}>
+        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end " onClick={logout}>
           <a href="#" className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Log out</a>
         </div>
       </nav>
