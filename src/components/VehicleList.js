@@ -9,6 +9,7 @@ export default function VehicleList({ userDetail, setUserDetail }) {
   const [userData, setUserData] = useState(null);
   const [detailPage, setDetailPage] = useState(false);
   const [vechileClicked, setVechileClicked] = useState(null);
+  const [vechileData, setVechileData] = useState(null);
 
   useEffect(() => {
     getVehicleList();
@@ -25,17 +26,20 @@ export default function VehicleList({ userDetail, setUserDetail }) {
       .then(({ data }) => {
         setData([...data]);
         setUserData([data[0]])
+        setVechileData(data[0].vehicles)
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
+  console.log(vechileData,"vechileData")
+
   return (
     <div>
-      <Home userData={userData} detailPage={detailPage} setUserData={setUserDetail} />
+      <Home userData={userData} detailPage={detailPage} vechileData={vechileData} setVechileData={setVechileData} setUserData={setUserDetail} />
       {!detailPage ?
-        <VechileCards userData={userData} setDetailPage={setDetailPage} setVechileClicked={setVechileClicked} /> :
+        <VechileCards vechileData={vechileData} userData={userData} setDetailPage={setDetailPage} setVechileClicked={setVechileClicked} /> :
         <VechileDetailPage vechileClicked={vechileClicked} userData={userData} setDetailPage={setDetailPage} />}
     </div>
   )

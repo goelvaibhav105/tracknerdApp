@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function Home({userData,setUserData,detailPage}) {
+export default function Home({userData,setUserData,detailPage,vechileData,setVechileData}) {
+
+const [searchInput, setSearchInput] = useState('');
+const [filteredResults, setFilteredResults] = useState([]);
+
+const searchItems = (searchValue) => {
+  setSearchInput(searchValue)
+  if (searchInput !== '') {
+    const filteredData = vechileData.filter((item) => {
+        return Object.values(item.registrationNumber).join('').toLowerCase().includes(searchInput.toLowerCase())
+    })
+    setVechileData(filteredData)
+  }else{
+    setVechileData(userData[0].vehicles)
+  }
+
+}
+
+
+const clearFilter = (searchValue) => {
+  setSearchInput(searchValue)
+    setVechileData(userData[0].vehicles)
+  
+
+}
+
  const vechileUnderUser = userData && userData[0].vehicles && userData[0].vehicles.length
 
  const logout = () =>{
   sessionStorage.clear();
   setUserData(null);
  }
+
+ console.log(searchInput,"searchInput")
   return (
 <div className="isolate bg-white">
   <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
@@ -81,6 +108,43 @@ export default function Home({userData,setUserData,detailPage}) {
           </div>
         </div>
       </div>
+    </div>
+    <div>
+  {!detailPage &&  <div class="flex justify-center flex-row items-center ">
+  <div class="mb-3 xl:w-96">
+    <input
+      type="text"
+      class="
+        form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
+      "
+      id="regnoFilter"
+      placeholder="Filter According to Regno."
+      value={searchInput}
+        onChange={(e) => searchItems(e.target.value)}
+    />
+  </div>
+  <button
+    type="button"
+    data-mdb-ripple="true"
+    data-mdb-ripple-color="light"
+    onClick={()=>{clearFilter('')}}
+    class=" px-6 py-2.5 ml-5 mt-[-10px] bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+  >Clear</button>
+</div>}
     </div>
   </main>
 </div>
